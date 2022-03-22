@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie-edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'main/css/style_main.css' %}">
+
+        <title>Magic - Поднимай деньги!</title>
+
+    </head>
+
+    <body>
+        <div class="background-logo">
+        <a href=""><img src="{% static 'main/img/as1.png' %}" id="star"></a>
+        </div>
+        <a href=""><img src="{% static 'main/img/starts.svg' %}" id="stars"></a>
+        
+        <div class="icon mines">
+            <a href="">
+                <img src="{% static 'main/img/bomb1.svg' %}" class="bomb-mines">
+            </a>  
+        </div>
+        <div class="icon wheel">
+            <a href="">
+                <img src="{% static 'main/img/wheel_icon.svg' %}" id="wheel-icon">
+            </a>   
+        </div>
+
+        <a href="" class="href-login-btn">
+            <div class="login-btn">
+                <img src="{% static 'main/img/vk2.svg' %}" id="vk-icon1">
+                <div class="btn-text"><a href="">Войти</a></div>
+            </div>
+        </a>
+        <!--<div class="all-chat hidden"> -->
+            <div class="chat-main">
+                <form id="post-form">
+                        {% csrf_token %}
+                        <input onclick="InputFunc()" autocomplete="off" maxlength="100" type="text" placeholder="Введите сообщение" class="input-text-area" id="message">
+                        <button type="submit" class="btn-send-message" id="btn-send">
+                            <img src="{% static 'main/img/send-message-icon.svg' %}" class="send-message-icon">
+                        </button>
+                        
+                </form>
+
+                <div class="container">
+                    
+                </div>
+
+            <ul id="messages-show"></div>
+
+            </ul>
+            
+
+            <div class="chat-header">
+                <div class="elems-header">
+                    <img src="{% static 'main/img/Frame.svg' %}" class="icon-chat">
+                    <div class="text-chat">Онлайн чат</div>
+                    <button class="hide-chat"><img src="{% static 'main/img/hide_chat_icon.svg' %}" id="icon-hide"></button>
+                </div>
+            </div>
+        </div>
+        <form id="reg-form">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Введите логин" autocomplete="off" id="login">
+            <input type="text" name="password" placeholder="Введите пароль" autocomplete="off" id="password">
+            <input type="text" name="email" placeholder="Введите почту" autocomplete="off" id="mail">
+            <button type="submit">Отправить</button>
+            
+        </form>
+
+        {% block content %}
+        {% endblock %}
+      
+        <script type="text/javascript" src="{% static 'main/js/chat.js' %}"></script>
+
+    </body>
+
+
